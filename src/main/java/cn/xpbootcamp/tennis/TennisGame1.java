@@ -35,30 +35,7 @@ public class TennisGame1 implements TennisGame {
     }
 
     private String getMatchScore() {
-        String score = "";
-        int tempScore;
-        for (int i = 1; i < 3; i++) {
-            if (i == 1) tempScore = player1.getScore();
-            else {
-                score += "-";
-                tempScore = player2.getScore();
-            }
-            switch (tempScore) {
-                case 0:
-                    score += "Love";
-                    break;
-                case 1:
-                    score += "Fifteen";
-                    break;
-                case 2:
-                    score += "Thirty";
-                    break;
-                case 3:
-                    score += "Forty";
-                    break;
-            }
-        }
-        return score;
+        return player1.getMatchScore() + "-" + player2.getMatchScore();
     }
 
     private String getMatchFinalScore() {

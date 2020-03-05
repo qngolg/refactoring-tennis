@@ -14,10 +14,24 @@ public class Player {
     }
 
     public void wonPoint() {
-        score ++;
+        score++;
     }
 
     public int getScore() {
         return score;
+    }
+
+    public String getMatchScore() {
+        switch (score) {
+            case 0:
+                return "Love";
+            case 1:
+                return "Fifteen";
+            case 2:
+                return "Thirty";
+            case 3:
+                return "Forty";
+        }
+        return null;
     }
 }
