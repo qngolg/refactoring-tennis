@@ -76,4 +76,39 @@ public class TennisGame1 implements TennisGame {
         }
         return score;
     }
+    private static class Player {
+        private String name;
+        private int score;
+
+        public Player(String name, int score) {
+            this.name = name;
+            this.score = score;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void wonPoint() {
+            score++;
+        }
+
+        public int getScore() {
+            return score;
+        }
+
+        public String getMatchScore() {
+            switch (score) {
+                case 0:
+                    return "Love";
+                case 1:
+                    return "Fifteen";
+                case 2:
+                    return "Thirty";
+                case 3:
+                    return "Forty";
+            }
+            return null;
+        }
+    }
 }
