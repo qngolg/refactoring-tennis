@@ -27,61 +27,23 @@ public class Player {
     public String compare(Player player2) {
         String score = "";
         if (point == player2.point && point < 4) {
-            if (point == 0)
-                score = "Love";
-            if (point == 1)
-                score = "Fifteen";
-            if (point == 2)
-                score = "Thirty";
-            score += "-All";
+            score = getDrawLessThen4(score);
         }
         if (point == player2.point && point >= 3)
             score = "Deuce";
 
         if (point > 0 && player2.point == 0) {
-            if (point == 1)
-                setResult("Fifteen");
-            if (point == 2)
-                setResult("Thirty");
-            if (point == 3)
-                setResult("Forty");
-
-            player2.setResult("Love");
-            score = getResult() + "-" + player2.getResult();
+            score = getResultWhenAPlayerIs0(player2, getResult(), player2.getResult());
         }
         if (player2.point > 0 && point == 0) {
-            if (player2.point == 1)
-                player2.setResult("Fifteen");
-            if (player2.point == 2)
-                player2.setResult("Thirty");
-            if (player2.point == 3)
-                player2.setResult("Forty");
-
-            setResult("Love");
-            score = getResult() + "-" + player2.getResult();
+            score = player2.getResultWhenAPlayerIs0(Player.this, getResult(), player2.getResult());
         }
 
         if (point > player2.point && point < 4) {
-            if (point == 2)
-                setResult("Thirty");
-            if (point == 3)
-                setResult("Forty");
-            if (player2.point == 1)
-                player2.setResult("Fifteen");
-            if (player2.point == 2)
-                player2.setResult("Thirty");
-            score = getResult() + "-" + player2.getResult();
+            score = getResultWhenPointLessThen4(player2, getResult(), player2.getResult());
         }
         if (player2.point > point && player2.point < 4) {
-            if (player2.point == 2)
-                player2.setResult("Thirty");
-            if (player2.point == 3)
-                player2.setResult("Forty");
-            if (point == 1)
-                setResult("Fifteen");
-            if (point == 2)
-                setResult("Thirty");
-            score = getResult() + "-" + player2.getResult();
+            score = player2.getResultWhenPointLessThen4(Player.this, getResult(), player2.getResult());
         }
 
         if (point > player2.point && player2.point >= 3) {
@@ -98,6 +60,45 @@ public class Player {
         if (player2.point >= 4 && point >= 0 && (player2.point - point) >= 2) {
             score = "Win for player2";
         }
+        return score;
+    }
+
+    private String getResultWhenPointLessThen4(Player player2, String result, String result2) {
+        String score;
+        if (point == 2)
+            setResult("Thirty");
+        if (point == 3)
+            setResult("Forty");
+        if (player2.point == 1)
+            player2.setResult("Fifteen");
+        if (player2.point == 2)
+            player2.setResult("Thirty");
+        score = result + "-" + result2;
+        return score;
+    }
+
+    private String getResultWhenAPlayerIs0(Player player2, String result, String result2) {
+        String score;
+        if (point == 1)
+            setResult("Fifteen");
+        if (point == 2)
+            setResult("Thirty");
+        if (point == 3)
+            setResult("Forty");
+
+        player2.setResult("Love");
+        score = result + "-" + result2;
+        return score;
+    }
+
+    private String getDrawLessThen4(String score) {
+        if (point == 0)
+            score = "Love";
+        if (point == 1)
+            score = "Fifteen";
+        if (point == 2)
+            score = "Thirty";
+        score += "-All";
         return score;
     }
 }
