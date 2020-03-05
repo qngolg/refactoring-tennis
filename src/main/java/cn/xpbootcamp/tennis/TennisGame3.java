@@ -12,6 +12,7 @@ public class TennisGame3 implements TennisGame {
         this.p2N = p2N;
     }
 
+    @Override
     public String getScore() {
         String s;
         if (p1 < 4 && p2 < 4 && !(p1 + p2 == 6)) {
@@ -26,6 +27,7 @@ public class TennisGame3 implements TennisGame {
         }
     }
 
+    @Override
     public void wonPoint(String playerName) {
         if (playerName == "player1")
             this.p1 += 1;

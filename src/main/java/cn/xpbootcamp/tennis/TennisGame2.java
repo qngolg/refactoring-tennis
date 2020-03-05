@@ -15,6 +15,7 @@ public class TennisGame2 implements TennisGame
         this.player2Name = player2Name;
     }
 
+    @Override
     public String getScore(){
         String score = "";
         if (P1point == P2point && P1point < 4)
@@ -127,6 +128,7 @@ public class TennisGame2 implements TennisGame
         P2point++;
     }
 
+    @Override
     public void wonPoint(String player) {
         if (player == "player1")
             P1Score();

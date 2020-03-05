@@ -12,6 +12,7 @@ public class TennisGame1 implements TennisGame {
         this.player2Name = player2Name;
     }
 
+    @Override
     public void wonPoint(String playerName) {
         if (playerName == "player1")
             m_score1 += 1;
@@ -19,6 +20,7 @@ public class TennisGame1 implements TennisGame {
             m_score2 += 1;
     }
 
+    @Override
     public String getScore() {
         String score = "";
         int tempScore=0;
