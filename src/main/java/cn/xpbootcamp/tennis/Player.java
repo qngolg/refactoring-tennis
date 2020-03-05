@@ -12,10 +12,6 @@ public class Player {
         this.result = result;
     }
 
-    public int getPoint() {
-        return point;
-    }
-
     public String getResult() {
         return result;
     }
@@ -30,76 +26,76 @@ public class Player {
 
     public String compare(Player player2) {
         String score = "";
-        if (getPoint() == player2.getPoint() && getPoint() < 4) {
-            if (getPoint() == 0)
+        if (point == player2.point && point < 4) {
+            if (point == 0)
                 score = "Love";
-            if (getPoint() == 1)
+            if (point == 1)
                 score = "Fifteen";
-            if (getPoint() == 2)
+            if (point == 2)
                 score = "Thirty";
             score += "-All";
         }
-        if (getPoint() == player2.getPoint() && getPoint() >= 3)
+        if (point == player2.point && point >= 3)
             score = "Deuce";
 
-        if (getPoint() > 0 && player2.getPoint() == 0) {
-            if (getPoint() == 1)
+        if (point > 0 && player2.point == 0) {
+            if (point == 1)
                 setResult("Fifteen");
-            if (getPoint() == 2)
+            if (point == 2)
                 setResult("Thirty");
-            if (getPoint() == 3)
+            if (point == 3)
                 setResult("Forty");
 
             player2.setResult("Love");
             score = getResult() + "-" + player2.getResult();
         }
-        if (player2.getPoint() > 0 && getPoint() == 0) {
-            if (player2.getPoint() == 1)
+        if (player2.point > 0 && point == 0) {
+            if (player2.point == 1)
                 player2.setResult("Fifteen");
-            if (player2.getPoint() == 2)
+            if (player2.point == 2)
                 player2.setResult("Thirty");
-            if (player2.getPoint() == 3)
+            if (player2.point == 3)
                 player2.setResult("Forty");
 
             setResult("Love");
             score = getResult() + "-" + player2.getResult();
         }
 
-        if (getPoint() > player2.getPoint() && getPoint() < 4) {
-            if (getPoint() == 2)
+        if (point > player2.point && point < 4) {
+            if (point == 2)
                 setResult("Thirty");
-            if (getPoint() == 3)
+            if (point == 3)
                 setResult("Forty");
-            if (player2.getPoint() == 1)
+            if (player2.point == 1)
                 player2.setResult("Fifteen");
-            if (player2.getPoint() == 2)
+            if (player2.point == 2)
                 player2.setResult("Thirty");
             score = getResult() + "-" + player2.getResult();
         }
-        if (player2.getPoint() > getPoint() && player2.getPoint() < 4) {
-            if (player2.getPoint() == 2)
+        if (player2.point > point && player2.point < 4) {
+            if (player2.point == 2)
                 player2.setResult("Thirty");
-            if (player2.getPoint() == 3)
+            if (player2.point == 3)
                 player2.setResult("Forty");
-            if (getPoint() == 1)
+            if (point == 1)
                 setResult("Fifteen");
-            if (getPoint() == 2)
+            if (point == 2)
                 setResult("Thirty");
             score = getResult() + "-" + player2.getResult();
         }
 
-        if (getPoint() > player2.getPoint() && player2.getPoint() >= 3) {
+        if (point > player2.point && player2.point >= 3) {
             score = "Advantage player1";
         }
 
-        if (player2.getPoint() > getPoint() && getPoint() >= 3) {
+        if (player2.point > point && point >= 3) {
             score = "Advantage player2";
         }
 
-        if (getPoint() >= 4 && player2.getPoint() >= 0 && (getPoint() - player2.getPoint()) >= 2) {
+        if (point >= 4 && player2.point >= 0 && (point - player2.point) >= 2) {
             score = "Win for player1";
         }
-        if (player2.getPoint() >= 4 && getPoint() >= 0 && (player2.getPoint() - getPoint()) >= 2) {
+        if (player2.point >= 4 && point >= 0 && (player2.point - point) >= 2) {
             score = "Win for player2";
         }
         return score;
