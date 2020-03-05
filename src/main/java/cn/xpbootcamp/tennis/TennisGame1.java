@@ -21,22 +21,21 @@ public class TennisGame1 implements TennisGame {
 
     @Override
     public String getScore() {
-        String score = "";
         if (isDraw()) {
-            score = getDrawScore();
+            return getDrawScore();
         } else if (isMatchOver()) {
-            score = getMatchFinalScore();
+            return getMatchFinalScore();
         } else {
-            score = getMatchScore(score);
+            return getMatchScore();
         }
-        return score;
     }
 
     private boolean isMatchOver() {
         return player1.getScore() >= 4 || player2.getScore() >= 4;
     }
 
-    private String getMatchScore(String score) {
+    private String getMatchScore() {
+        String score = "";
         int tempScore;
         for (int i = 1; i < 3; i++) {
             if (i == 1) tempScore = player1.getScore();
