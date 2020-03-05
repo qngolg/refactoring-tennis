@@ -41,10 +41,15 @@ public class TennisGame1 implements TennisGame {
     private String getMatchFinalScore() {
         String score;
         int minusResult = player1.getScore() - player2.getScore();
-        if (minusResult == 1) score = "Advantage player1";
-        else if (minusResult == -1) score = "Advantage player2";
-        else if (minusResult >= 2) score = "Win for player1";
-        else score = "Win for player2";
+        if (minusResult == 1) {
+            score = "Advantage player1";
+        } else if (minusResult == -1) {
+            score = "Advantage player2";
+        } else if (minusResult >= 2) {
+            score = "Win for player1";
+        } else {
+            score = "Win for player2";
+        }
         return score;
     }
 
