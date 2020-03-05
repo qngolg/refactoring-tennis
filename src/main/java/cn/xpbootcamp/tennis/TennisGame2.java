@@ -15,19 +15,11 @@ public class TennisGame2 implements TennisGame {
         return player1.compare(player2);
     }
 
-    public void P1Score() {
-        player1.addPoint();
-    }
-
-    public void P2Score() {
-        player2.addPoint();
-    }
-
     @Override
     public void wonPoint(String player) {
         if (player == "player1")
-            P1Score();
+            player1.addPoint();
         else
-            P2Score();
+            player2.addPoint();
     }
 }
